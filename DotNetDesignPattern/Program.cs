@@ -1,4 +1,5 @@
-﻿using DotNetDesignPattern.SOLID.LSP;
+﻿using DotNetDesignPattern.SOLID.DIP;
+using DotNetDesignPattern.SOLID.LSP;
 using DotNetDesignPattern.SOLID.OCP;
 using DotNetDesignPattern.SOLID.SRP;
 using System;
@@ -39,6 +40,10 @@ namespace DotNetDesignPattern
             {
                 student.SecretaryCandidate();
             }
+
+            // dip
+            new LogManagerDip(new LogToOutput()).Log("Log to output with DIP");
+            new LogManagerDip(new LogToFile()).Log("Log to file with DIP");
         }
     }
 }
