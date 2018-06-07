@@ -1,6 +1,6 @@
-﻿using DotNetDesignPattern.SOLID.SRP;
+﻿using DotNetDesignPattern.SOLID.OCP;
+using DotNetDesignPattern.SOLID.SRP;
 using System;
-using System.IO;
 
 namespace DotNetDesignPattern
 {
@@ -8,16 +8,22 @@ namespace DotNetDesignPattern
     {
         static void Main(string[] args)
         {
-            // SOLID
-            Console.WriteLine("SOLID");
-
-            var fileName = $"{Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)}\\log.txt";
-
-            var studentWithLog = new StudentWithLog();
-
-            studentWithLog.Remove(1);
+            Solid();
 
             Console.ReadKey();
+        }
+
+        public static void Solid()
+        {
+            Console.WriteLine("SOLID");
+
+            // srp
+            var studentWithLog = new StudentWithLog();
+            studentWithLog.Remove(1);
+
+            // ocp
+            ILogger logger = new LogToOutput();
+            logger.Log("Log to output");
         }
     }
 }
