@@ -3,6 +3,13 @@ using System;
 
 namespace DotNetDesignPattern.SOLID.LSP
 {
+    public partial class Student
+    {
+        //public virtual void SecretaryCandidate()
+        //{
+        //    // do something
+        //}
+    }
     public class NormalStudent : Student, ICandidate
     {
         public void SecretaryCandidate() => Console.WriteLine("Normal student secretary candidate");

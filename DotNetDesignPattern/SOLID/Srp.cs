@@ -11,11 +11,6 @@ namespace DotNetDesignPattern.SOLID.SRP
 
         public void Remove(int index) => entries.RemoveAt(index);
 
-        //public virtual void SecretaryCandidate()
-        //{
-        //    // do something
-        //}
-
         // breaks single responsibility principle
         public void Log(string error) => Console.WriteLine(error);
     }
