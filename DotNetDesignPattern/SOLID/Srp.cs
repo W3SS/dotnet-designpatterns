@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotNetDesignPattern.SOLID.SRP
 {
@@ -15,7 +11,10 @@ namespace DotNetDesignPattern.SOLID.SRP
 
         public void Remove(int index) => entries.RemoveAt(index);
 
-        public override string ToString() => string.Join(Environment.NewLine, entries);
+        //public virtual void SecretaryCandidate()
+        //{
+        //    // do something
+        //}
 
         // breaks single responsibility principle
         public void Log(string error) => Console.WriteLine(error);

@@ -1,6 +1,8 @@
-﻿using DotNetDesignPattern.SOLID.OCP;
+﻿using DotNetDesignPattern.SOLID.LSP;
+using DotNetDesignPattern.SOLID.OCP;
 using DotNetDesignPattern.SOLID.SRP;
 using System;
+using System.Collections.Generic;
 
 namespace DotNetDesignPattern
 {
@@ -24,6 +26,19 @@ namespace DotNetDesignPattern
             // ocp
             ILogger logger = new LogToOutput();
             logger.Log("Log to output");
+
+            // lsp
+            var students = new List<ICandidate>
+            {
+                new NormalStudent(),
+                new AdvancedStudent(),
+                // new ForeignStudent()
+            };
+
+            foreach (var student in students)
+            {
+                student.SecretaryCandidate();
+            }
         }
     }
 }

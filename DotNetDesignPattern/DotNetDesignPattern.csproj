@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SOLID\Lsp.cs" />
     <Compile Include="SOLID\Ocp.cs" />
     <Compile Include="SOLID\Srp.cs" />
   </ItemGroup>

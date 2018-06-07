@@ -36,17 +36,11 @@ namespace DotNetDesignPattern.SOLID.OCP
 
     public class LogToOutput : ILogger
     {
-        public void Log(string error)
-        {
-            Console.WriteLine(error);
-        }
+        public void Log(string error) => Console.WriteLine(error);
     }
 
     public class LogToFile : ILogger
     {
-        public void Log(string error)
-        {
-            File.WriteAllText("log.txt", error);
-        }
+        public void Log(string error) => File.WriteAllText("log.txt", error);
     }
 }
