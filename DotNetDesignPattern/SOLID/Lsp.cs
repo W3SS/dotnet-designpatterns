@@ -1,5 +1,4 @@
-﻿using DotNetDesignPattern.SOLID.SRP;
-using System;
+﻿using System;
 
 namespace DotNetDesignPattern.SOLID.LSP
 {

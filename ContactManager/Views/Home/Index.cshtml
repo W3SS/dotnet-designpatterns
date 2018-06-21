@@ -1,0 +1,30 @@
+﻿@model List<ContactManager.Core.Contact>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <h1>List of Contacts</h1>
+    @Html.ActionLink("Add New Contact", "Add", "Home")
+    <br /><br />
+    <table border="1" cellpadding="10">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td><a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

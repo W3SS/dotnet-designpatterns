@@ -5,11 +5,11 @@ namespace DotNetDesignPattern.SOLID.SRP
 {
     public class Student
     {
-        private readonly List<string> entries = new List<string>();
+        private readonly List<string> _entries = new List<string>();
 
-        public void Add(string name) => entries.Add(name);
+        public void Add(string name) => _entries.Add(name);
 
-        public void Remove(int index) => entries.RemoveAt(index);
+        public void Remove(int index) => _entries.RemoveAt(index);
 
         // breaks single responsibility principle
         public void Log(string error) => Console.WriteLine(error);

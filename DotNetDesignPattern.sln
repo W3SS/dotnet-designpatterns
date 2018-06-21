@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetDesignPattern", "DotNetDesignPattern\DotNetDesignPattern.csproj", "{23CACD29-CE0A-485D-96EB-A139776972A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager", "ContactManager\ContactManager.csproj", "{F5FE95C7-613F-4AF6-9D5F-E752EB3DACC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{23CACD29-CE0A-485D-96EB-A139776972A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23CACD29-CE0A-485D-96EB-A139776972A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23CACD29-CE0A-485D-96EB-A139776972A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5FE95C7-613F-4AF6-9D5F-E752EB3DACC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5FE95C7-613F-4AF6-9D5F-E752EB3DACC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5FE95C7-613F-4AF6-9D5F-E752EB3DACC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5FE95C7-613F-4AF6-9D5F-E752EB3DACC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
