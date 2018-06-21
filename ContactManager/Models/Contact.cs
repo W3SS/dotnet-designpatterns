@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ContactManager.Core
+namespace ContactManager.Models
 {
     [Table("Contacts")]
     public class Contact

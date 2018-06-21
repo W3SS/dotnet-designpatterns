@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ContactManager.Core
+namespace ContactManager.Models
 {
     [Table("Customers")]
     public class Customer

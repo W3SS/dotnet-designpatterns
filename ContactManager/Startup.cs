@@ -39,7 +39,7 @@ namespace ContactManager
             {
                 routes.MapRoute(
                         name: "Default",
-                        template: "{controller=Customer}/{action=Index}/{id?}"
+                        template: "{controller=Income}/{action=Index}/{id?}"
                     );
             });
         }
