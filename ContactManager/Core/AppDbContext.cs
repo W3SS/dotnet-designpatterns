@@ -10,5 +10,6 @@ namespace ContactManager.Core
         }
 
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }
