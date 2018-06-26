@@ -1,0 +1,33 @@
+﻿@model Dictionary<ContactManager.Core.IReadableSettings, Dictionary<string, string>>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>All Settings</h1>
+    <form asp-controller="Setting" asp-action="Save" method="post">
+        <input type="submit" value="Change Settings" />
+    </form>
+    <table border="1" cellpadding="10">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Key.ToString()</td>
+                <td>
+                    @foreach (var subItem in item.Value)
+                    {
+                        <div>@subItem.Key = @subItem.Value</div>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
