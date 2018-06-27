@@ -22,6 +22,7 @@ namespace ContactManager
             services.AddEntityFrameworkSqlServer();
 
             AppSettings.Title = Configuration.GetSection("AppSettings")["Title"];
+            AppSettings.FactoryType = Configuration.GetSection("AppSettings")["FactoryType"];
             AppSettings.ConnectionString = Configuration.GetConnectionString("DefaultConnection");
         }
 

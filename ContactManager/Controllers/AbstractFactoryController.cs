@@ -1,5 +1,6 @@
 ﻿using ContactManager.Core;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace ContactManager.Controllers
 {
@@ -14,13 +15,22 @@ namespace ContactManager.Controllers
         public IActionResult ExecuteQuery(string type, string query)
         {
             var factory = (IDatabaseFactory)null;
-            if (type == "sqlclient")
+
+
+            if (string.IsNullOrEmpty(AppSettings.FactoryType))
             {
-                factory = new SqlClientFactory();
+                if (type == "sqlclient")
+                {
+                    factory = new SqlClientFactory();
+                }
+                else
+                {
+                    // factory = new OleDbFactory();
+                } 
             }
             else
             {
-                // factory = new OleDbFactory();
+                factory = (IDatabaseFactory)Activator.CreateInstance(Type.GetType(AppSettings.FactoryType));
             }
 
             var helper = new DatabaseHelper(factory);
