@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetDesignPattern", "DotNetDesignPattern\DotNetDesignPattern.csproj", "{23CACD29-CE0A-485D-96EB-A139776972A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager", "ContactManager\ContactManager.csproj", "{F5FE95C7-613F-4AF6-9D5F-E752EB3DACC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcDesignPattern", "MvcDesignPattern\MvcDesignPattern.csproj", "{F5FE95C7-613F-4AF6-9D5F-E752EB3DACC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

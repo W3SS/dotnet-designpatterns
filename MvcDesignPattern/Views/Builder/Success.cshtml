@@ -1,0 +1,20 @@
+﻿@model MvcDesignPattern.Core.Computer
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Success</title>
+</head>
+<body>
+    <h1>Your computer has the following configuration :</h1>
+    @foreach (var item in Model.Parts)
+    {
+        <h3>@(item?.PartCode ?? "No configuration")</h3>
+    }
+</body>
+</html>

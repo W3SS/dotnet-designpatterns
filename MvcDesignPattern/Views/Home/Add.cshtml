@@ -1,0 +1,49 @@
+﻿@model MvcDesignPattern.Models.Contact
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <h1>Add New Contact</h1>
+    @Html.ActionLink("Go Back", "Index", "Home")
+    <br /><br />
+    @using (Html.BeginForm("Add", "Home", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+          <form>
+              <table>
+                  <tr>
+                      <td>@Html.LabelFor(m => m.FirstName, "First Name :")</td>
+                      <td>@Html.TextBoxFor(m => m.FirstName, new { @type = "text" })</td>
+                  </tr>
+                  <tr>
+                      <td>@Html.LabelFor(m => m.LastName, "Last Name :")</td>
+                      <td>@Html.TextBoxFor(m => m.LastName, new { @type = "text" })</td>
+                  </tr>
+                  <tr>
+                      <td>@Html.LabelFor(m => m.Email, "Email :")</td>
+                      <td>@Html.TextBoxFor(m => m.Email, new { @type = "text" })</td>
+                  </tr>
+                  <tr>
+                      <td>@Html.LabelFor(m => m.Phone, "Phone :")</td>
+                      <td>@Html.TextBoxFor(m => m.Phone, new { @type = "text" })</td>
+                  </tr>
+                  <tr>
+                      <td colspan="2">
+                          <input type="submit" value="Submit" />
+                      </td>
+                  </tr>
+              </table>
+          </form>
+    }
+    <strong>@ViewBag.Message</strong>
+</body>
+</html>
