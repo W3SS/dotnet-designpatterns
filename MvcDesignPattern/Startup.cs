@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
 
 namespace MvcDesignPattern
 {
@@ -29,6 +30,7 @@ namespace MvcDesignPattern
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            AppSettings.LogFileFolder = Path.Combine(env.WebRootPath, "errorlogs");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
