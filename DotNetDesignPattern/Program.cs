@@ -1,4 +1,5 @@
-﻿using DotNetDesignPattern.SOLID.DIP;
+﻿using DotNetDesignPattern.Patterns.Behavior;
+using DotNetDesignPattern.SOLID.DIP;
 using DotNetDesignPattern.SOLID.LSP;
 using DotNetDesignPattern.SOLID.OCP;
 using DotNetDesignPattern.SOLID.SRP;
@@ -11,9 +12,37 @@ namespace DotNetDesignPattern
     {
         static void Main(string[] args)
         {
-            Solid();
+            //Solid();
+
+            Observer();
 
             Console.ReadKey();
+        }
+
+        public static void Observer()
+        {
+            // custom
+            var weatherData = new WeatherData();
+
+            var currentDisplay = new CurrentConditionDisplay(weatherData);
+
+            weatherData.SetMeasurements(80, 65, 30.4f);
+            weatherData.SetMeasurements(82, 70, 29.2f);
+
+            // using buildin class
+            var provider = new LocationTracker();
+
+            var reporter1 = new LocationReporter("Report1");
+            reporter1.Subscribe(provider);
+
+            var reporter2 = new LocationReporter("Report2");
+            reporter2.Subscribe(provider);
+
+            provider.TrackLocation(new Location(47.6456, -122.1312));
+            reporter1.Unsubscribe();
+            provider.TrackLocation(new Location(47.6677, -122.1199));
+            provider.TrackLocation(null);
+            provider.EndTransmission();
         }
 
         public static void Solid()
