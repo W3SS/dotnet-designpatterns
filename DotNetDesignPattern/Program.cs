@@ -1,4 +1,5 @@
 ﻿using DotNetDesignPattern.Patterns.Behavioral;
+using DotNetDesignPattern.Patterns.Creational;
 using DotNetDesignPattern.Patterns.Structural;
 using DotNetDesignPattern.SOLID.DIP;
 using DotNetDesignPattern.SOLID.LSP;
@@ -13,9 +14,23 @@ namespace DotNetDesignPattern
     {
         static void Main(string[] args)
         {
-            Decorator();
+            Factory();
 
             Console.ReadKey();
+        }
+
+        public static void Factory()
+        {
+            // simple factory
+            var simpleFactory = new SimplePizzaFactory();
+            var simpleStore = new SimplePizzaStore(simpleFactory);
+
+            var pizza = simpleStore.OrderPizza("cheese");
+            pizza = simpleStore.OrderPizza("pepperoni");
+
+            // factory method
+            pizza = new CheesePizzaFactory().OrderPizza();
+            pizza = new PepperoniPizzaFactory().OrderPizza();
         }
 
         public static void Decorator()

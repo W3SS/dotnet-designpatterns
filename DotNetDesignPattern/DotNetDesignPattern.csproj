@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="Patterns\Behavioral\ObserverBuiltIn.cs" />
     <Compile Include="Patterns\Behavioral\Observer.cs" />
-    <Compile Include="Patterns\Creational\FactoryMethod.cs" />
+    <Compile Include="Patterns\Creational\Factory.cs" />
     <Compile Include="Patterns\Structural\Decorator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
