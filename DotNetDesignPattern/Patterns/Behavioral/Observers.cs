@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DotNetDesignPattern.Patterns.Behavior
+namespace DotNetDesignPattern.Patterns.Behavioral
 {
     public interface ISubject
     {

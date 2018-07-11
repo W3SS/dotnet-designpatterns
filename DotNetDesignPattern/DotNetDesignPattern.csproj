@@ -42,8 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Patterns\Behavior\BuiltIn.cs" />
-    <Compile Include="Patterns\Behavior\Observers.cs" />
+    <Compile Include="Patterns\Behavioral\BuiltIn.cs" />
+    <Compile Include="Patterns\Behavioral\Observers.cs" />
+    <Compile Include="Patterns\Structural\Decorator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SOLID\Dip.cs" />
@@ -55,5 +56,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using DotNetDesignPattern.Patterns.Behavior;
+﻿using DotNetDesignPattern.Patterns.Behavioral;
+using DotNetDesignPattern.Patterns.Structural;
 using DotNetDesignPattern.SOLID.DIP;
 using DotNetDesignPattern.SOLID.LSP;
 using DotNetDesignPattern.SOLID.OCP;
@@ -12,11 +13,21 @@ namespace DotNetDesignPattern
     {
         static void Main(string[] args)
         {
-            //Solid();
-
-            Observer();
+            Decorator();
 
             Console.ReadKey();
+        }
+
+        public static void Decorator()
+        {
+            var espresso = new Espresso();
+            Console.WriteLine($"{espresso.Description} ${espresso.Cost()}");
+
+            Beverage houseblend = new HouseBlend();
+            houseblend = new Mocha(houseblend);
+            houseblend = new Mocha(houseblend);
+            houseblend = new Soy(houseblend);
+            Console.WriteLine($"{houseblend.Description} ${houseblend.Cost()}");
         }
 
         public static void Observer()
