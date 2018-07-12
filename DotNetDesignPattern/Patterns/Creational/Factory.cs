@@ -2,6 +2,7 @@
 
 namespace DotNetDesignPattern.Patterns.Creational
 {
+    #region Pizza
     public abstract class IPizza
     {
         protected List<string> _toppings = new List<string>();
@@ -15,7 +16,6 @@ namespace DotNetDesignPattern.Patterns.Creational
         {
             System.Console.WriteLine("Bake for 25 minutes at 350");
             return this;
-
         }
 
         public virtual IPizza Box()
@@ -77,6 +77,7 @@ namespace DotNetDesignPattern.Patterns.Creational
     public class ClamPizza : IPizza
     {
     }
+    #endregion
 
     #region Simple Factory
     public interface ISimplePizzaFactory
@@ -99,7 +100,7 @@ namespace DotNetDesignPattern.Patterns.Creational
 
             return null;
         }
-    } 
+    }
 
     public class SimplePizzaStore
     {
@@ -147,6 +148,157 @@ namespace DotNetDesignPattern.Patterns.Creational
         public override IPizza CreatePizza()
         {
             return new PepperoniPizza();
+        }
+    }
+    #endregion
+
+    #region Abstract Factory
+    namespace AbstractFactory
+    {
+        public interface IPizzaIngredientFactory
+        {
+            ICheese CreateCheese();
+            IPepperoni CreatePepperoni();
+            IClam CreateClam();
+        }
+
+        public interface IClam
+        {
+        }
+
+        public interface IPepperoni
+        {
+        }
+
+        public interface ICheese
+        {
+        }
+
+        public class NewYorkIngredientFactory : IPizzaIngredientFactory
+        {
+            public ICheese CreateCheese() => new ReggianoCheese();
+
+            public IClam CreateClam() => new FreshClam();
+
+            public IPepperoni CreatePepperoni() => new SlicedPepperoni();
+        }
+
+        internal class SlicedPepperoni : IPepperoni
+        {
+        }
+
+        internal class FreshClam : IClam
+        {
+        }
+
+        internal class ReggianoCheese : ICheese
+        {
+        }
+
+        public abstract class IPizza
+        {
+            protected IPizzaIngredientFactory _factory;
+            protected ICheese _cheese;
+            protected IPepperoni _pepperoni;
+            protected IClam _clam;
+
+            public string Name { get; set; }
+
+            public IPizza(IPizzaIngredientFactory factory) => _factory = factory;
+
+            public virtual IPizza Bake()
+            {
+                System.Console.WriteLine("Bake for 25 minutes at 350");
+                return this;
+            }
+
+            public virtual IPizza Box()
+            {
+                System.Console.WriteLine("Place pizza in official PizzaStore box");
+                return this;
+            }
+
+            public virtual IPizza Cut()
+            {
+                System.Console.WriteLine("Cutting the pizza into diagonal slices");
+                return this;
+            }
+
+            public abstract IPizza Prepare();
+        }
+
+        public class CheesePizza : IPizza
+        {
+            public CheesePizza(IPizzaIngredientFactory factory) : base(factory)
+            {
+                Name = "Cheese Pizza";
+            }
+
+            public override IPizza Prepare()
+            {
+                System.Console.WriteLine("Preparing " + Name);
+                _cheese = _factory.CreateCheese();
+                _pepperoni = _factory.CreatePepperoni();
+                _clam = _factory.CreateClam();
+
+                return this;
+            }
+        }
+
+        public class PepperoniPizza : IPizza
+        {
+            public PepperoniPizza(IPizzaIngredientFactory factory) : base(factory)
+            {
+                Name = "Pepperoni Pizza";
+            }
+
+            public override IPizza Prepare()
+            {
+                System.Console.WriteLine("Preparing " + Name);
+                _cheese = _factory.CreateCheese();
+                _pepperoni = _factory.CreatePepperoni();
+                _clam = _factory.CreateClam();
+
+                return this;
+            }
+        }
+
+        public class ClamPizza : IPizza
+        {
+            public ClamPizza(IPizzaIngredientFactory factory) : base(factory)
+            {
+                Name = "Clam Pizza";
+            }
+
+            public override IPizza Prepare()
+            {
+                System.Console.WriteLine("Preparing " + Name);
+                _cheese = _factory.CreateCheese();
+                _pepperoni = _factory.CreatePepperoni();
+                _clam = _factory.CreateClam();
+
+                return this;
+            }
+        }
+
+        public abstract class PizzaStore
+        {
+            public abstract IPizza CreatePizza();
+            public IPizza OrderPizza()
+            {
+                var pizza = CreatePizza();
+                System.Console.WriteLine("Making " + pizza.Name);
+
+                return pizza?.Prepare()?.Bake()?.Cut()?.Box();
+            }
+        }
+
+        public class NewYorkPizzaFactory : PizzaStore
+        {
+            public override IPizza CreatePizza()
+            {
+                return new CheesePizza(new NewYorkIngredientFactory());
+            }
         }
     }
     #endregion
