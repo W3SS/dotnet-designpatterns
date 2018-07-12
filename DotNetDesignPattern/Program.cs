@@ -14,9 +14,18 @@ namespace DotNetDesignPattern
     {
         static void Main(string[] args)
         {
-            Factory();
+            Singleton();
 
             Console.ReadKey();
+        }
+
+        public static void Singleton()
+        {
+            var mySingleton = MySingleton.Instance;
+            Console.WriteLine(mySingleton.Count);
+
+            var otherSingleton = MySingleton.Instance;
+            Console.WriteLine(otherSingleton.Count);
         }
 
         public static void Factory()
