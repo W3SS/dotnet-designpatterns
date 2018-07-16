@@ -14,9 +14,23 @@ namespace DotNetDesignPattern
     {
         static void Main(string[] args)
         {
-            Singleton();
+            Command();
 
             Console.ReadKey();
+        }
+
+        public static void Command()
+        {
+            var invoker = new Invoker();
+            var receiver = new Calculator();
+
+            invoker.Compute(CommandFactory.GetCommand(receiver, '+', 100));
+            invoker.Compute(CommandFactory.GetCommand(receiver, '-', 50));
+            invoker.Compute(CommandFactory.GetCommand(receiver, '*', 10));
+            invoker.Compute(CommandFactory.GetCommand(receiver, '/', 2));
+
+            invoker.Undo(3);
+            invoker.Redo(2);
         }
 
         public static void Singleton()

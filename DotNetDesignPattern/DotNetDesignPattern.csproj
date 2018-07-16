@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Patterns\Behavioral\Command.cs" />
     <Compile Include="Patterns\Behavioral\ObserverBuiltIn.cs" />
     <Compile Include="Patterns\Behavioral\Observer.cs" />
     <Compile Include="Patterns\Creational\Factory.cs" />
