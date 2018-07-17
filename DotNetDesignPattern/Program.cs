@@ -14,9 +14,25 @@ namespace DotNetDesignPattern
     {
         static void Main(string[] args)
         {
-            Command();
+            Adapter();
 
             Console.ReadKey();
+        }
+
+        public static void Adapter()
+        {
+            var classAdapter = new ClassEmployeeAdapter();
+            foreach (var item in classAdapter.GetEmployees())
+            {
+                Console.WriteLine(item);
+            }
+
+            var adaptee = new ThirdPartyEmployee();
+            var objectAdapter = new ObjectEmployeeAdapter(adaptee);
+            foreach (var item in objectAdapter.GetEmployees())
+            {
+                Console.WriteLine(item);
+            }
         }
 
         public static void Command()

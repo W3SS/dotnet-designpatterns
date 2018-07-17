@@ -47,6 +47,7 @@
     <Compile Include="Patterns\Behavioral\Observer.cs" />
     <Compile Include="Patterns\Creational\Factory.cs" />
     <Compile Include="Patterns\Creational\Singleton.cs" />
+    <Compile Include="Patterns\Structural\Adapter.cs" />
     <Compile Include="Patterns\Structural\Decorator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
