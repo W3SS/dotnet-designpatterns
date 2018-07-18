@@ -14,9 +14,17 @@ namespace DotNetDesignPattern
     {
         static void Main(string[] args)
         {
-            Adapter();
+            Facade();
 
             Console.ReadKey();
+        }
+
+        public static void Facade()
+        {
+            var mortgage = new Mortgage(new Bank(), new Loan(), new Credit());
+            var customer = new Customer("Hop");
+
+            Console.WriteLine($"{customer.Name} has been {(mortgage.IsEligible(customer) ? "approved" : "rejected")}");
         }
 
         public static void Adapter()

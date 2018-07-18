@@ -49,6 +49,7 @@
     <Compile Include="Patterns\Creational\Singleton.cs" />
     <Compile Include="Patterns\Structural\Adapter.cs" />
     <Compile Include="Patterns\Structural\Decorator.cs" />
+    <Compile Include="Patterns\Structural\Facade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SOLID\Dip.cs" />
