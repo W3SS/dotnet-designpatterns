@@ -14,9 +14,18 @@ namespace DotNetDesignPattern
     {
         static void Main(string[] args)
         {
-            Facade();
+            Template();
 
             Console.ReadKey();
+        }
+
+        public static void Template()
+        {
+            var tea = new Tea();
+            var coffee = new Coffee();
+
+            tea.PrepareRecipe();
+            coffee.PrepareRecipe();
         }
 
         public static void Facade()
